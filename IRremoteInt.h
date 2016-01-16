@@ -1,7 +1,7 @@
  /***************************************************
  * IRremote for ESP8266
  *
- * Based on the IRremote library for Arduino by Ken Shirriff 
+ * Based on the IRremote library for Arduino by Ken Shirriff
  * Version 0.11 August, 2009
  * Copyright 2009 Ken Shirriff
  * For details, see http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html
@@ -15,7 +15,7 @@
  * JVC and Panasonic protocol added by Kristian Lauszus (Thanks to zenwheel and other people at the original blog post)
  * Whynter A/C ARC-110WD added by Francesco Meschia
  *
- * 09/23/2015 : Samsung pulse parameters updated by Sebastien Warin to be compatible with EUxxD6200 
+ * 09/23/2015 : Samsung pulse parameters updated by Sebastien Warin to be compatible with EUxxD6200
  *
  *  GPL license, all text above must be included in any redistribution
  ****************************************************/
@@ -47,6 +47,13 @@
 #define NEC_ZERO_SPACE	560
 #define NEC_RPT_SPACE	2250
 
+#define TWC_HDR_MARK	3350
+#define TWC_HDR_SPACE	3372
+#define TWC_BIT_MARK	827
+#define TWC_ONE_SPACE	2557
+#define TWC_ZERO_SPACE	827
+#define TWC_RPT_SPACE	855
+
 #define SONY_HDR_MARK	2400
 #define SONY_HDR_SPACE	600
 #define SONY_ONE_MARK	1200
@@ -57,13 +64,13 @@
 // SA 8650B
 #define SANYO_HDR_MARK	3500  // seen range 3500
 #define SANYO_HDR_SPACE	950 //  seen 950
-#define SANYO_ONE_MARK	2400 // seen 2400  
+#define SANYO_ONE_MARK	2400 // seen 2400
 #define SANYO_ZERO_MARK 700 //  seen 700
 #define SANYO_DOUBLE_SPACE_USECS  800  // usually ssee 713 - not using ticks as get number wrapround
 #define SANYO_RPT_LENGTH 45000
 
 // Mitsubishi RM 75501
-// 14200 7 41 7 42 7 42 7 17 7 17 7 18 7 41 7 18 7 17 7 17 7 18 7 41 8 17 7 17 7 18 7 17 7 
+// 14200 7 41 7 42 7 42 7 17 7 17 7 18 7 41 7 18 7 17 7 17 7 18 7 41 8 17 7 17 7 18 7 17 7
 
 // #define MITSUBISHI_HDR_MARK	250  // seen range 3500
 #define MITSUBISHI_HDR_SPACE	350 //  7*50+100
@@ -137,8 +144,8 @@
 #define DISH_BITS 16
 
 #define TOLERANCE 25  // percent tolerance in measurements
-#define LTOL (1.0 - TOLERANCE/100.) 
-#define UTOL (1.0 + TOLERANCE/100.) 
+#define LTOL (1.0 - TOLERANCE/100.)
+#define UTOL (1.0 + TOLERANCE/100.)
 
 #define _GAP 5000 // Minimum map between transmissions
 #define GAP_TICKS (_GAP/USECPERTICK)
@@ -162,7 +169,7 @@ typedef struct {
   unsigned int timer;     // state timer, counts 50uS ticks.
   unsigned int rawbuf[RAWBUF]; // raw data
   uint8_t rawlen;         // counter of entries in rawbuf
-} 
+}
 irparams_t;
 
 // Defined in IRremote.cpp

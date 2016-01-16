@@ -1,7 +1,7 @@
  /***************************************************
  * IRremote for ESP8266
- * 
- * Based on the IRremote library for Arduino by Ken Shirriff 
+ *
+ * Based on the IRremote library for Arduino by Ken Shirriff
  * Version 0.11 August, 2009
  * Copyright 2009 Ken Shirriff
  * For details, see http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html
@@ -125,6 +125,7 @@ public:
   void begin();
   void sendWhynter(unsigned long data, int nbits);
   void sendNEC(unsigned long data, int nbits);
+  void sendTWC(unsigned long data);
   void sendLG(unsigned long data, int nbits);
   void sendSony(unsigned long data, int nbits);
   // Neither Sanyo nor Mitsubishi send is implemented yet
